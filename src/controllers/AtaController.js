@@ -4,7 +4,8 @@ const Ata = mongoose.model('Ata');
 
 module.exports = {
   async index(req, res) {
-    const atas = await Ata.find();
+    const { page = 1 } = req.query;
+    const atas = await Ata.paginate({}, {page, limit: 6});
 
     return res.status(200).json(atas);
   },

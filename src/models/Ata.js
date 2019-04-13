@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 const AtaSchema = new mongoose.Schema({
   title: {
@@ -39,5 +40,7 @@ const AtaSchema = new mongoose.Schema({
   }
 
 });
+
+AtaSchema.plugin(mongoosePaginate);
 
 mongoose.model('Ata', AtaSchema);
